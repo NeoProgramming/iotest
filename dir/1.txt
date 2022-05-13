@@ -1,3 +1,0 @@
-<html><head></head>
-<body>file 1</body>
-</html>
