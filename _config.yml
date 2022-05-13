@@ -1,2 +1,2 @@
 layouts_dir: ./_layouts
-include: [./_contents]
+include: ./_contents
