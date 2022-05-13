@@ -1,1 +1,2 @@
-include: [.]
+layouts_dir: ./_layouts
+include: [./_contents]
