@@ -21,6 +21,7 @@ window.onunload = function () { };
         window.addEventListener('mousemove', resize, false);
         window.addEventListener('mouseup', stopResize, false);
    //     html.classList.add('sidebar-resizing');
+		return true;
     }
 	
 	// visual resize
@@ -29,6 +30,7 @@ window.onunload = function () { };
 
 		pos = Math.min(pos, window.innerWidth - 100);
         document.documentElement.style.setProperty('--sidebar-width', pos + 'px');
+		return true;
     }
 	
     // on mouseup remove windows functions mousemove & mouseup
@@ -41,6 +43,7 @@ window.onunload = function () { };
 		
 		console.log("stopResize: ", pos)
 		localStorage.setItem('recentSidebarPos', pos);
+		return true;
     }
 
     // Scroll sidebar to current active section
