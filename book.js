@@ -12,7 +12,7 @@ window.onunload = function () { };
     var firstContact = null;
 	
 	var recentOffsetX = localStorage.getItem('recentSidebarPos');
-	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
+	//document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
 	console.log("function sidebar() start: ", recentOffsetX)
 
     sidebarResizeHandle.addEventListener('mousedown', initResize, false);
