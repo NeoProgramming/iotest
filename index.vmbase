@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vmbase version="1.0" images="." snippets=".">
+	<node guid="882ad920e84941f984fa3644dcaa9247" title0="test" time0="2022-05-15 16:31:19" s="normal">
+		<node id="main" />
+		<node id="dir" />
+		<node id="doc4" />
+		<node id="doc1" />
+	</node>
+	<bases>
+		<base title="" suffix="" rpath="." csspath="index.css" prefix="---&#10;layout: default&#10;---&#10;" />
+		<base title="" suffix="" rpath="" csspath="" prefix="" />
+	</bases>
+</vmbase>
