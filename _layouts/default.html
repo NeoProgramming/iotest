@@ -3,11 +3,42 @@ layout: default
 ---
 <!DOCTYPE html>
 <html>
-  <body>
-   <h1>LAYOUT  0x0A</h1>
-   {% include content.html %}
-   <h2>---</h2>
-   {{ content }}
-  </body>
+<head>    
+<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="book.css">
+<link rel="stylesheet" href="tree.css">
+</head>
+<body>
+<script type = 'text/javascript' src = 'funcs.js'></script>
+<script type = 'text/javascript' src = 'tree_toggle.js'></script>
+
+<div onclick = 'tree_toggle(arguments[0])' id = 'globalxmltree'>
+
+<nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+<div class="sidebar-scrollbox">
+
+{% include contents.html %}
+
+</div>
+<div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+</nav>
+
+</div>
+<script type = 'text/javascript'> tree_init(); </script>
+
+<div id="page-wrapper" class="page-wrapper">
+<div class="page">
+<div id="content" class="content">
+<main>
+
+{{ content }}
+
+</main>
+</div>
+</div>
+</div>	
+<script type="text/javascript" src="book.js" charset="utf-8"></script>   
+</body>
 </html>
 
