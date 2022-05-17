@@ -3,22 +3,44 @@
 // Fix back button cache problem
 window.onunload = function () { };
 
+function createScrollStopListener(element, callback, timeout) {
+    var handle = null;
+    var onScroll = function() {
+        if (handle) {
+            clearTimeout(handle);
+        }
+        handle = setTimeout(callback, timeout || 200); // default 200 ms
+    };
+    element.addEventListener('scroll', onScroll);
+    return function() {
+        element.removeEventListener('scroll', onScroll);
+    };
+}
 
 (function sidebar() {
     var html = document.querySelector("html");
     var sidebar = document.getElementById("sidebar");
-    var sidebarLinks = document.querySelectorAll('#sidebar a');
     var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
-    var firstContact = null;
+    var sidebarScrollbox = document.getElementById("sidebar-scrollbox");
 	
+	var firstContact = null;
+		
 	var recentOffsetX = localStorage.getItem('recentSidebarPos');
+	var recentScrollY = localStorage.getItem('recentSidebarScrollPos');
 	if(recentOffsetX < 20)
 		recentOffsetX = 20;
+
 	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
-	console.log("function sidebar() start: ", recentOffsetX)
+	sidebarScrollbox.scrollTop = recentScrollY || 0;
 
     sidebarResizeHandle.addEventListener('mousedown', initResize, false);
-
+	
+	createScrollStopListener(sidebarScrollbox, function() {
+		var scroll_pos = sidebarScrollbox.scrollTop;
+		console.log("onScrollStop", scroll_pos);
+		localStorage.setItem('recentSidebarScrollPos', scroll_pos);
+    });
+	
     function initResize(e) {
         window.addEventListener('mousemove', resize, false);
         window.addEventListener('mouseup', stopResize, false);
