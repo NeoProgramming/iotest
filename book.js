@@ -42,6 +42,7 @@ function createScrollStopListener(element, callback, timeout) {
 	
 //2	sidebarScrollbox.scrollTop = recentScrollY;
 
+	// breaks!!!
     sidebarResizeHandle.addEventListener('mousedown', initResize, false);
 	
 //1	createScrollStopListener(sidebarScrollbox, function() {
@@ -54,6 +55,7 @@ function createScrollStopListener(element, callback, timeout) {
         window.addEventListener('mousemove', resize, false);
         window.addEventListener('mouseup', stopResize, false);
         html.classList.add('sidebar-resizing');
+		return true;
     }
 	
 	// visual resize
@@ -62,6 +64,7 @@ function createScrollStopListener(element, callback, timeout) {
 
 		pos = Math.min(pos, window.innerWidth - 100);
         document.documentElement.style.setProperty('--sidebar-width', pos + 'px');
+		return true;
     }
 	
     // on mouseup remove windows functions mousemove & mouseup
@@ -74,6 +77,7 @@ function createScrollStopListener(element, callback, timeout) {
 		
 		console.log("stopResize: ", pos)
 		sessionStorage.setItem('recentSidebarPos', pos);
+		return true;
     }
 
     // Scroll sidebar to current active section
