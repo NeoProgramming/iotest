@@ -36,11 +36,13 @@ function tree_init()
         for (i=0; i<aListItems.length; i++) {
 			var citem = aListItems.item(i);
 			var id = citem.id;
-			var st = sessionStorage.getItem(id);
-			console.log("id == ", id, " st == ", st);           
-            var newClass = st !=1 ? 'ExpandClosed' : 'ExpandOpen';
-			var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
-			citem.className = citem.className.replace(re, '$1'+newClass+'$3')
+			if(id!=null) {
+				var st = sessionStorage.getItem(id);
+				console.log("id == ", id, " st == ", st);           
+				var newClass = st !=1 ? 'ExpandClosed' : 'ExpandOpen';
+				var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
+				citem.className = citem.className.replace(re, '$1'+newClass+'$3')
+			}
 		}
     }
 }
