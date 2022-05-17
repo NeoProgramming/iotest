@@ -39,7 +39,7 @@ function createScrollStopListener(element, callback, timeout) {
 	
 	console.log("rx = ", recentOffsetX, " ry = ", recentScrollY);
 
-//4	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
+	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
 //2	sidebarScrollbox.scrollTop = recentScrollY;
 
 //4    sidebarResizeHandle.addEventListener('mousedown', initResize, false);
