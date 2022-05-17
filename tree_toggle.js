@@ -1,82 +1,50 @@
-﻿function tree_toggle(event) 
+﻿function hasClass(elem, className) 
 {
-	//alert('tree toggle');
+	return new RegExp("(^|\\s)"+className+"(\\s|$)").test(elem.className)
+}
 
+function tree_toggle(event) 
+{
+	console.log('tree toggle');
 	event = event || window.event
 	var clickedElem = event.target || event.srcElement
-
-	if (!hasClass(clickedElem, 'Expand')) {
-		return // клик не там
-	}
-
-	// Node, на который кликнули
+	if (!hasClass(clickedElem, 'Expand')) 
+		return;
 	var node = clickedElem.parentNode
-	if (hasClass(node, 'ExpandLeaf')) {
-		return // клик на листе
-	}
+	if (hasClass(node, 'ExpandLeaf')) 
+		return;
 
-	// определить новый класс для узла
 	var newClass = hasClass(node, 'ExpandOpen') ? 'ExpandClosed' : 'ExpandOpen';
-	
-	// у нас есть элемент node; пишем в куки новое состояние
 	var idstr = node.id;
-	
-	//alert(idstr);
-	
-	if(newClass == 'ExpandOpen')
-	{
-		setCookie(idstr, "1");
-	}
-	else
-	{
-		setCookie(idstr, "0");
-	}
-	
+	localStorage.setItem(idstr, newClass == 'ExpandOpen' ? 1 : 0);
+		
 	// заменить текущий класс на newClass
 	// регексп находит отдельно стоящий open|close и меняет на newClass
 	var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
 	node.className = node.className.replace(re, '$1'+newClass+'$3')
 }
 
-
-function hasClass(elem, className) 
-{
-	return new RegExp("(^|\\s)"+className+"(\\s|$)").test(elem.className)
-}
-
 function tree_init()
 {
     // инициализировать дерево в соответствии с куками
-    //alert('tree init');
+    console.log('tree init');
     var item = document.getElementById("globalxmltree");
     var aDivs = item.getElementsByTagName("li");
-    if (aDivs!=null) 
-    {	
-    	//alert(aDivs.length);
-    	
+    if (aDivs!=null) {	
         var i=0;
-        for (i=0; i<aDivs.length; i++) 
-   	{
-   	    // получаем идентификатор элемента
+        for (i=0; i<aDivs.length; i++) {
             var id = aDivs.item(i).id;
-            
-            //alert(id);
-            
+			console.log("id == ", id);
             var name = id.substr(0,2);
-            if(name == 'id')
-            {
-            	
-            	var st = getCookie(id);
-            //	alert(id + " == " + st);	// id1 = 0, id2 = null etc.
-            	
+            if(name == 'id') {
+            	var st = localStorage.getItem(id);
             	var citem = document.getElementById(id);
-            	if(citem)
-            	{
+            	if(citem) {
             	 	var newClass = st !=1 ? 'ExpandClosed' : 'ExpandOpen';
-           		var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
-			citem.className = citem.className.replace(re, '$1'+newClass+'$3')
+					var re =  /(^|\s)(ExpandOpen|ExpandClosed)(\s|$)/
+					citem.className = citem.className.replace(re, '$1'+newClass+'$3')
+				}
+			}
 		}
-            }
-   	}
     }
 }
