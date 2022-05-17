@@ -12,6 +12,8 @@ window.onunload = function () { };
     var firstContact = null;
 	
 	var recentOffsetX = localStorage.getItem('recentSidebarPos');
+	if(recentOffsetX < 20)
+		recentOffsetX = 20;
 	//document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
 	console.log("function sidebar() start: ", recentOffsetX)
 
