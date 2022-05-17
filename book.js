@@ -21,7 +21,7 @@ function createScrollStopListener(element, callback, timeout) {
     var html = document.querySelector("html");
     var sidebar = document.getElementById("sidebar");
     var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
-    var sidebarScrollbox = document.getElementById("sidebar-scrollbox");
+//    var sidebarScrollbox = document.getElementById("sidebar-scrollbox");
 	
 	var firstContact = null;
 		
@@ -36,7 +36,7 @@ function createScrollStopListener(element, callback, timeout) {
 	console.log("rx = ", recentOffsetX, " ry = ", recentScrollY);
 
 	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
-	sidebarScrollbox.scrollTop = recentScrollY;
+//	sidebarScrollbox.scrollTop = recentScrollY;
 
     sidebarResizeHandle.addEventListener('mousedown', initResize, false);
 	
