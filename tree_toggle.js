@@ -5,9 +5,10 @@
 
 function tree_toggle(event) 
 {
-	console.log('tree toggle');
 	event = event || window.event
 	var clickedElem = event.target || event.srcElement
+	console.log('tree toggle: ', clickedElem);
+	
 	if (!hasClass(clickedElem, 'Expand')) 
 		return;
 	var node = clickedElem.parentNode
