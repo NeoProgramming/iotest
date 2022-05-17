@@ -28,7 +28,7 @@ function createScrollStopListener(element, callback, timeout) {
 	var recentOffsetX = sessionStorage.getItem('recentSidebarPos');
 	var recentScrollY = sessionStorage.getItem('recentSidebarScrollPos');
 	if(recentOffsetX==null || recentOffsetX < 20)
-		recentOffsetX = 100;
+		recentOffsetX = 200;
 	if(recentScrollY==null || recentScrollY<0)
 		recentScrollY = 0;
 	
