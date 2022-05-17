@@ -2,7 +2,7 @@
 
 // Fix back button cache problem
 window.onunload = function () { };
-/*
+
 function createScrollStopListener(element, callback, timeout) {
     var handle = null;
     var onScroll = function() {
@@ -15,18 +15,13 @@ function createScrollStopListener(element, callback, timeout) {
     return function() {
         element.removeEventListener('scroll', onScroll);
     };
-}*/
+}
 
 (function sidebar() {
     var html = document.querySelector("html");
-	console.log("html is ",  html ? "ok" : "null");
     var sidebar = document.getElementById("sidebar");
-	console.log("sidebar is ", sidebar ? "ok" : "null");
     var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
-	console.log("sidebarResizeHandle is ", sidebarResizeHandle ? "ok" : "null");
 	var sidebarScrollbox = document.getElementById("sidebar-scrollbox");
-	console.log("sidebarScrollbox is ", sidebarScrollbox ? "ok" : "null");
-	
 	var firstContact = null;
 		
 	// get params
@@ -37,24 +32,25 @@ function createScrollStopListener(element, callback, timeout) {
 	if(recentScrollY==null || recentScrollY<0)
 		recentScrollY = 0;
 	
+	recentOffsetX = recentOffsetX + "px";
 	console.log("rx = ", recentOffsetX, " ry = ", recentScrollY);
 	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
 	
-//2	sidebarScrollbox.scrollTop = recentScrollY;
+	sidebarScrollbox.scrollTop = recentScrollY;
 
 	// breaks!!!
     sidebarResizeHandle.addEventListener('mousedown', initResize);//, false);
 	
-//1	createScrollStopListener(sidebarScrollbox, function() {
-//1		var scroll_pos = sidebarScrollbox.scrollTop;
-//1		console.log("onScrollStop", scroll_pos);
-//1		sessionStorage.setItem('recentSidebarScrollPos', scroll_pos);
-//1   });
+	createScrollStopListener(sidebarScrollbox, function() {
+		var scroll_pos = sidebarScrollbox.scrollTop;
+		console.log("onScrollStop", scroll_pos);
+		sessionStorage.setItem('recentSidebarScrollPos', scroll_pos);
+    });
 	
     function initResize(e) {
-    //7    window.addEventListener('mousemove', resize, false);
-    //7    window.addEventListener('mouseup', stopResize, false);
-    //7    html.classList.add('sidebar-resizing');
+        window.addEventListener('mousemove', resize, false);
+        window.addEventListener('mouseup', stopResize, false);
+        html.classList.add('sidebar-resizing');
 		return true;
     }
 	
@@ -69,7 +65,7 @@ function createScrollStopListener(element, callback, timeout) {
 	
     // on mouseup remove windows functions mousemove & mouseup
     function stopResize(e) {
-    //    html.classList.remove('sidebar-resizing');
+        html.classList.remove('sidebar-resizing');
         window.removeEventListener('mousemove', resize, false);
         window.removeEventListener('mouseup', stopResize, false);
 		
