@@ -5,6 +5,22 @@
 		<node id="dir" />
 		<node id="doc4" />
 		<node id="doc1" />
+		<node id="doc5" />
+		<node id="doc6" />
+		<node id="doc7" />
+		<node id="doc8" />
+		<node id="doc9" />
+		<node id="doc10" />
+		<node id="doc11" />
+		<node id="doc12" />
+		<node id="doc13" />
+		<node id="doc14" />
+		<node id="doc15" />
+		<node id="doc16" />
+		<node id="doc17" />
+		<node id="doc18" />
+		<node id="doc19" />
+		<node id="doc2-" />
 	</node>
 	<bases>
 		<base title="" suffix="" rpath="." csspath="index.css" prefix="---&#10;layout: default&#10;---&#10;" />
