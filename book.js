@@ -25,8 +25,9 @@ function createScrollStopListener(element, callback, timeout) {
 	
 	var firstContact = null;
 		
-	var recentOffsetX = localStorage.getItem('recentSidebarPos');
-	var recentScrollY = localStorage.getItem('recentSidebarScrollPos');
+	// get params
+	var recentOffsetX = sessionStorage.getItem('recentSidebarPos');
+	var recentScrollY = sessionStorage.getItem('recentSidebarScrollPos');
 	if(recentOffsetX < 20)
 		recentOffsetX = 20;
 
@@ -38,14 +39,13 @@ function createScrollStopListener(element, callback, timeout) {
 	createScrollStopListener(sidebarScrollbox, function() {
 		var scroll_pos = sidebarScrollbox.scrollTop;
 		console.log("onScrollStop", scroll_pos);
-		localStorage.setItem('recentSidebarScrollPos', scroll_pos);
+		sessionStorage.setItem('recentSidebarScrollPos', scroll_pos);
     });
 	
     function initResize(e) {
         window.addEventListener('mousemove', resize, false);
         window.addEventListener('mouseup', stopResize, false);
         html.classList.add('sidebar-resizing');
-		return true;
     }
 	
 	// visual resize
@@ -54,7 +54,6 @@ function createScrollStopListener(element, callback, timeout) {
 
 		pos = Math.min(pos, window.innerWidth - 100);
         document.documentElement.style.setProperty('--sidebar-width', pos + 'px');
-		return true;
     }
 	
     // on mouseup remove windows functions mousemove & mouseup
@@ -66,8 +65,7 @@ function createScrollStopListener(element, callback, timeout) {
 		var pos = (e.clientX - sidebar.offsetLeft);
 		
 		console.log("stopResize: ", pos)
-		localStorage.setItem('recentSidebarPos', pos);
-		return true;
+		sessionStorage.setItem('recentSidebarPos', pos);
     }
 
     // Scroll sidebar to current active section
