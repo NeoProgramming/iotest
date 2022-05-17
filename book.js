@@ -38,11 +38,11 @@ function createScrollStopListener(element, callback, timeout) {
 		recentScrollY = 0;
 	
 	console.log("rx = ", recentOffsetX, " ry = ", recentScrollY);
-
 	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
+	
 //2	sidebarScrollbox.scrollTop = recentScrollY;
 
-//4    sidebarResizeHandle.addEventListener('mousedown', initResize, false);
+    sidebarResizeHandle.addEventListener('mousedown', initResize, false);
 	
 //1	createScrollStopListener(sidebarScrollbox, function() {
 //1		var scroll_pos = sidebarScrollbox.scrollTop;
