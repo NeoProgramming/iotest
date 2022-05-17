@@ -75,12 +75,5 @@ function createScrollStopListener(element, callback, timeout) {
 		sessionStorage.setItem('recentSidebarPos', pos);
 		return true;
     }
-
-    // Scroll sidebar to current active section
-//3    var activeSection = document.getElementById("sidebar").querySelector(".active");
-//3    if (activeSection) {
-//3        // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-//3        activeSection.scrollIntoView({ block: 'center' });
-//3    }
 })();
 
