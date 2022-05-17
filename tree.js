@@ -36,7 +36,7 @@ function tree_init()
         for (i=0; i<aListItems.length; i++) {
 			var citem = aListItems.item(i);
 			var id = citem.id;
-			if(id!=null) {
+			if(id!=null && id!="") {
 				var st = sessionStorage.getItem(id);
 				console.log("id == ", id, " st == ", st);           
 				var newClass = st !=1 ? 'ExpandClosed' : 'ExpandOpen';
