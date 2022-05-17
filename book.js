@@ -40,11 +40,11 @@ function createScrollStopListener(element, callback, timeout) {
 
     sidebarResizeHandle.addEventListener('mousedown', initResize, false);
 	
-	createScrollStopListener(sidebarScrollbox, function() {
-		var scroll_pos = sidebarScrollbox.scrollTop;
-		console.log("onScrollStop", scroll_pos);
-		sessionStorage.setItem('recentSidebarScrollPos', scroll_pos);
-    });
+//	createScrollStopListener(sidebarScrollbox, function() {
+//		var scroll_pos = sidebarScrollbox.scrollTop;
+//		console.log("onScrollStop", scroll_pos);
+//		sessionStorage.setItem('recentSidebarScrollPos', scroll_pos);
+//   });
 	
     function initResize(e) {
         window.addEventListener('mousemove', resize, false);
