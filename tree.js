@@ -28,9 +28,10 @@ function tree_toggle(event)
 function tree_init()
 {
     // инициализировать дерево в соответствии с куками
-    console.log('tree init');
+    
     var item = document.getElementById("globalxmltree");
     var aDivs = item.getElementsByTagName("li");
+	console.log('tree init: ', aDivs);
     if (aDivs!=null) {	
         var i=0;
         for (i=0; i<aDivs.length; i++) {
