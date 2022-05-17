@@ -21,7 +21,7 @@ function createScrollStopListener(element, callback, timeout) {
     var html = document.querySelector("html");
     var sidebar = document.getElementById("sidebar");
     var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
-//    var sidebarScrollbox = document.getElementById("sidebar-scrollbox");
+//2    var sidebarScrollbox = document.getElementById("sidebar-scrollbox");
 	
 	var firstContact = null;
 		
@@ -36,15 +36,15 @@ function createScrollStopListener(element, callback, timeout) {
 	console.log("rx = ", recentOffsetX, " ry = ", recentScrollY);
 
 	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
-//	sidebarScrollbox.scrollTop = recentScrollY;
+//2	sidebarScrollbox.scrollTop = recentScrollY;
 
     sidebarResizeHandle.addEventListener('mousedown', initResize, false);
 	
-//	createScrollStopListener(sidebarScrollbox, function() {
-//		var scroll_pos = sidebarScrollbox.scrollTop;
-//		console.log("onScrollStop", scroll_pos);
-//		sessionStorage.setItem('recentSidebarScrollPos', scroll_pos);
-//   });
+//1	createScrollStopListener(sidebarScrollbox, function() {
+//1		var scroll_pos = sidebarScrollbox.scrollTop;
+//1		console.log("onScrollStop", scroll_pos);
+//1		sessionStorage.setItem('recentSidebarScrollPos', scroll_pos);
+//1   });
 	
     function initResize(e) {
         window.addEventListener('mousemove', resize, false);
@@ -73,10 +73,10 @@ function createScrollStopListener(element, callback, timeout) {
     }
 
     // Scroll sidebar to current active section
-    var activeSection = document.getElementById("sidebar").querySelector(".active");
-    if (activeSection) {
-        // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
-        activeSection.scrollIntoView({ block: 'center' });
-    }
+//3    var activeSection = document.getElementById("sidebar").querySelector(".active");
+//3    if (activeSection) {
+//3        // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+//3        activeSection.scrollIntoView({ block: 'center' });
+//3    }
 })();
 
