@@ -19,17 +19,13 @@ function createScrollStopListener(element, callback, timeout) {
 
 (function sidebar() {
     var html = document.querySelector("html");
-	if(!html)
-		console.log("html is null");
+	console.log("html is ",  html ? "ok" : "null");
     var sidebar = document.getElementById("sidebar");
-	if(!sidebar)
-		console.log("sidebar is null");
+	console.log("sidebar is ", sidebar ? "ok" : "null");
     var sidebarResizeHandle = document.getElementById("sidebar-resize-handle");
-	if(!sidebarResizeHandle)
-		console.log("sidebarResizeHandle is null");
+	console.log("sidebarResizeHandle is ", sidebarResizeHandle ? "ok" : "null");
 	var sidebarScrollbox = document.getElementById("sidebar-scrollbox");
-	if(!sidebarScrollbox)
-		console.log("sidebarScrollbox is null");
+	console.log("sidebarScrollbox is ", sidebarScrollbox ? "ok" : "null");
 	
 	var firstContact = null;
 		
