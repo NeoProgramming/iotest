@@ -43,7 +43,7 @@ function createScrollStopListener(element, callback, timeout) {
 //2	sidebarScrollbox.scrollTop = recentScrollY;
 
 	// breaks!!!
-    sidebarResizeHandle.addEventListener('mousedown', initResize, false);
+    sidebarResizeHandle.addEventListener('mousedown', initResize);//, false);
 	
 //1	createScrollStopListener(sidebarScrollbox, function() {
 //1		var scroll_pos = sidebarScrollbox.scrollTop;
