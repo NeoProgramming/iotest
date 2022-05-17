@@ -19,6 +19,13 @@
     color: black;
 } 
 
+.sidebar-resizing {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .sidebar .sidebar-scrollbox {
     overflow-y: auto;
     position: absolute;
