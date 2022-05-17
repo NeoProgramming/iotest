@@ -28,7 +28,7 @@ function createScrollStopListener(element, callback, timeout) {
 	// get params
 	var recentOffsetX = sessionStorage.getItem('recentSidebarPos');
 	var recentScrollY = sessionStorage.getItem('recentSidebarScrollPos');
-	if(recentOffsetX < 20)
+	if(recentOffsetX==null || recentOffsetX < 20)
 		recentOffsetX = 20;
 
 	document.documentElement.style.setProperty('--sidebar-width', recentOffsetX);
