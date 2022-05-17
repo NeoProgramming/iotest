@@ -2,7 +2,7 @@
 
 // Fix back button cache problem
 window.onunload = function () { };
-
+/*
 function createScrollStopListener(element, callback, timeout) {
     var handle = null;
     var onScroll = function() {
@@ -15,7 +15,7 @@ function createScrollStopListener(element, callback, timeout) {
     return function() {
         element.removeEventListener('scroll', onScroll);
     };
-}
+}*/
 
 (function sidebar() {
     var html = document.querySelector("html");
