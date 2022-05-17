@@ -52,9 +52,9 @@ function createScrollStopListener(element, callback, timeout) {
 //1   });
 	
     function initResize(e) {
-    //6    window.addEventListener('mousemove', resize, false);
-    //6    window.addEventListener('mouseup', stopResize, false);
-        html.classList.add('sidebar-resizing');
+        window.addEventListener('mousemove', resize, false);
+        window.addEventListener('mouseup', stopResize, false);
+    //7    html.classList.add('sidebar-resizing');
 		return true;
     }
 	
@@ -69,7 +69,7 @@ function createScrollStopListener(element, callback, timeout) {
 	
     // on mouseup remove windows functions mousemove & mouseup
     function stopResize(e) {
-        html.classList.remove('sidebar-resizing');
+    //    html.classList.remove('sidebar-resizing');
         window.removeEventListener('mousemove', resize, false);
         window.removeEventListener('mouseup', stopResize, false);
 		
