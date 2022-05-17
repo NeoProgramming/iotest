@@ -52,8 +52,8 @@ function createScrollStopListener(element, callback, timeout) {
 //1   });
 	
     function initResize(e) {
-        window.addEventListener('mousemove', resize, false);
-        window.addEventListener('mouseup', stopResize, false);
+    //6    window.addEventListener('mousemove', resize, false);
+    //6    window.addEventListener('mouseup', stopResize, false);
         html.classList.add('sidebar-resizing');
 		return true;
     }
